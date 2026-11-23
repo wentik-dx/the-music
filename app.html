@@ -2451,6 +2451,20 @@ html.reduce-motion #boot { animation: bootAutoHide .001ms linear forwards !impor
   animation: fadeIn .22s ease both;
 }
 .account-overlay, .discover-overlay { z-index: 910; }
+/* v1.2 hotfix: общий .backdrop из реестра имеет z-index:900 и накрывал
+   .sheet (z-index:1) внутри auth/account/discover — оставался только блюр.
+   Оверлей работает как контейнер, размытие даёт его собственный .backdrop. */
+.auth-overlay, .account-overlay, .discover-overlay {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.auth-overlay > .backdrop,
+.account-overlay > .backdrop,
+.discover-overlay > .backdrop { z-index: 0; }
+.auth-overlay > .sheet,
+.account-overlay > .sheet,
+.discover-overlay > .sheet { z-index: 2; }
 .sheet-close {
   flex: none; width: 34px; height: 34px; border: 0; border-radius: 11px;
   display: grid; place-items: center; cursor: pointer;
