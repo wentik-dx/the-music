@@ -13,7 +13,11 @@
 | `manifest.json` | PWA-манифест (standalone, встроенные иконки 192/512) |
 | `build.sh` | локальная пересборка `app.html` из `../assets/app.html` |
 
-##Деплой
+## Живой сайт
+
+**https://the-music.pages.dev** — production, деплой `7fddf6d9`.
+
+## Деплой
 
 Проект разворачивается как **Cloudflare Pages Direct Upload**:
 
